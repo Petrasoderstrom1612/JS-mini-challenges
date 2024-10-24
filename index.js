@@ -52,3 +52,30 @@ const createHikesInKmv3 = () => {
 }
 
 console.log(createHikesInKmv3())
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+/* MAPPING  - where you store a mapping function and object destructuring and html into one array into one variable*/ 
+
+import { playlistArr } from '/playlist.js'
+
+
+const playlistHtml = playlistArr.map((track) => {
+    const {albumArt, title, artist} = track
+    return `
+<section class="card">
+    <div class="card-start">
+        <img src="${albumArt}">
+    </div>
+        <div class="card-mid">
+            <h4 class="card-title">${title}</h4>
+            <p class="card-artist">${artist}</p>
+        </div>
+    <div class="card-end">
+        <p class="card-menu">...</p>
+    </div>
+</section>
+`
+}).join('')
+
+document.getElementById('container').innerHTML = playlistHtml
