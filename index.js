@@ -60,8 +60,8 @@ console.log(createHikesInKmv3())
 import { playlistArr } from '/playlist.js'
 
 
-const playlistHtml = playlistArr.map((track) => {
-    const {albumArt, title, artist} = track
+const playlistHtml = playlistArr.map((oneSong) => {
+    const {albumArt, title, artist} = oneSong
     return `
 <section class="card">
     <div class="card-start">
@@ -76,6 +76,36 @@ const playlistHtml = playlistArr.map((track) => {
     </div>
 </section>
 `
-}).join('')
+}).join("") //join method turns array into a string, the empty string argument in parentheses removes komma separators between items
 
 document.getElementById('container').innerHTML = playlistHtml
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+/* FOR EACH - not a good choice of looping method here, as forEach should be used to modify existing array, not to create a new one*/ 
+
+import { playlistArr2 } from '/playlist2.js'
+
+const playlistHtml2 = []
+
+ playlistArr2.forEach((oneSong) => {
+    const {albumArt, title, artist} = oneSong
+    playlistHtml2.push(`
+        <section class="card">
+            <div class="card-start">
+                <img src="${albumArt}">
+            </div>
+                <div class="card-mid">
+                    <h4 class="card-title">${title}</h4>
+                    <p class="card-artist">${artist}</p>
+                </div>
+            <div class="card-end">
+                <p class="card-menu">...</p>
+            </div>
+        </section>
+        `)
+}) 
+
+
+document.getElementById('container2').innerHTML = playlistHtml2.join("")
+/*-------------------------------------------------------------------------------------------------------------*/
