@@ -139,3 +139,20 @@ for (let i= 0; i < expensesAndRefunds.length; i++){
 }
 
 console.log(`The total expenses spent in 2023 without credits is $${totalSpent}`)
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+// DANGERS OF USING INNER HTML - if you use innerHTML somebody can insert in malicious html code, use instead textContent or innerText that only displays text and not JS
+
+//hacker code: <button onclick="document.getElementById('film-list-app').innerHTML='<h1>Now I own your site 😭</h1>'">Click Me ☣️</button>
+
+let filmInput = document.getElementById("film-input")
+let addBtn = document.getElementById("add-btn")
+let filmList = document.getElementById("film-list")
+
+addBtn.addEventListener("click", function(){
+    let usersInput = filmInput.value
+    filmList.textContent = `<li><ul>${usersInput}</ul></li>`
+})
+
+/*-------------------------------------------------------------------------------------------------------------*/
