@@ -151,8 +151,16 @@ let addBtn = document.getElementById("add-btn")
 let filmList = document.getElementById("film-list")
 
 addBtn.addEventListener("click", function(){
-    let usersInput = filmInput.value
-    filmList.textContent = `<li><ul>${usersInput}</ul></li>`
+    // let usersInput = filmInput.value
+    // filmList.textContent += `<p>${usersInput}</p>` //this code will insert the <p> as text, you must avoid using html tags if you want this code to work. If you use innerHTML, your code can be hacked.
+    // filmInput.value = ""
+
+    const newFilm = document.createElement("p") //create new html element
+    newFilm.classList.add("film-item") //add class to it
+    newFilm.innerText += filmInput.value //fill it inside with the input.value you wrote in input field
+    filmList.appendChild(newFilm) //add this entire html element as a child element to the right dom div
+    filmInput.value = "" //clear the input value. !no it is value you clear in input not innertext!
 })
+
 
 /*-------------------------------------------------------------------------------------------------------------*/

@@ -72,3 +72,9 @@ h4.card-title {
 .container{
     max-width:832px;
 }
+
+.film-item {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
